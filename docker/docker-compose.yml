@@ -24,6 +24,7 @@ services:
 
   doc-v-mongo:
     container_name: doc-v-mongo
+    hostname: doc-v-mongo
     image: mongo:3.6-stretch
     environment:
       MONGO_INITDB_ROOT_USERNAME: mongoReadWrite
