@@ -13,6 +13,7 @@ services:
     networks:
       app_net:
         ipv4_address: 172.16.238.10
+
   doc-v-node2:
     container_name: doc-v-node2
     image: jovenbico/ubuntu-ssh-enabled:v3
@@ -20,6 +21,17 @@ services:
     networks:
       app_net:
         ipv4_address: 172.16.238.20
+
+  doc-v-mongo:
+    container_name: doc-v-mongo
+    image: mongo:3.6-stretch
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongoReadWrite
+      MONGO_INITDB_ROOT_PASSWORD:
+    ports:
+      - "27017:27017"
+    command: mongod --smallfiles
+
   doc-v-monitor:
     container_name: doc-v-monitor
     image: jovenbico/ubuntu-ssh-enabled:v3
