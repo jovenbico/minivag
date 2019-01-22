@@ -10,12 +10,16 @@ Vagrant.configure("2") do |config|
       vbox.cpus = 2
   end
 
+  config.vm.provision "shell", inline: $install_docker_compose_script
+  #config.vm.provision "shell", inline: $pull_docker_image_script
   config.vm.provision "shell", inline: $install_ansible_script
-  config.vm.synced_folder "D:\\_My_Documents\\Workspace\\jalportal-projects\\jal-deployment\\ansible-configs", "/ansible-configs"
+
+  ## Sync local directory to vagrant box ##
+  #config.vm.synced_folder "D:\\_My_Documents\\Workspace\\jalportal-projects\\jal-deployment\\ansible-configs", "/ansible-configs"
 
 end
 
-$install_ansible_script = <<-SCRIPT
+$install_docker_compose_script = <<-SCRIPT
 echo '### Install Docker CE'
 apt-get update && apt-get upgrade -y
 apt-get -y install apt-transport-https ca-certificates curl gnupg2 software-properties-common
@@ -29,10 +33,15 @@ usermod -aG docker vagrant
 echo '### Install Docker Compose'
 curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
+SCRIPT
 
-echo '### Pull Docker Image jovenbico/ubuntu-ssh-enabled'
-docker pull jovenbico/ubuntu-ssh-enabled:v2
+$pull_docker_image_script = <<-SCRIPT
+echo '### Pull Docker Images'
+docker pull jovenbico/ubuntu-ssh-enabled:v3
+docker pull mongo:3.6-stretch
+SCRIPT
 
+$install_ansible_script = <<-SCRIPT
 echo '### Install Ansible'
 apt-get -y install python-pip && pip install 'ansible==2.7.6'
 
