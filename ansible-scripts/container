@@ -1,3 +1,3 @@
-doc-v-node1   ansible_ssh_user=root ansible_ssh_pass=Passw0rd ansible_host=172.16.238.10
-doc-v-node2   ansible_ssh_user=root ansible_ssh_pass=Passw0rd ansible_host=172.16.238.20
-doc-v-monitor ansible_ssh_user=root ansible_ssh_pass=Passw0rd ansible_host=172.16.238.30
+con-v-node1   ansible_ssh_user=root ansible_ssh_pass=Passw0rd ansible_host=172.16.238.10
+con-v-node2   ansible_ssh_user=root ansible_ssh_pass=Passw0rd ansible_host=172.16.238.20
+con-v-monitor ansible_ssh_user=root ansible_ssh_pass=Passw0rd ansible_host=172.16.238.30
