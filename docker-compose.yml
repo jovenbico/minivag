@@ -1,30 +1,36 @@
 version: "3"
 services:
 
-  cs-v-node1:
-    container_name: cs-v-node1
-    image: jovenbico/ubuntu-ssh-enabled:v2
+  doc-v-node1:
+    container_name: doc-v-node1
+    image: jovenbico/ubuntu-ssh-enabled:v3
+    privileged: true
+    networks:
+      app_net:
+        ipv4_address: 172.16.238.10
+  doc-v-node2:
+    container_name: doc-v-node2
+    image: jovenbico/ubuntu-ssh-enabled:v3
+    privileged: true
+    networks:
+      app_net:
+        ipv4_address: 172.16.238.20
+  doc-v-node3:
+    container_name: doc-v-node3
+    image: jovenbico/ubuntu-ssh-enabled:v3
+    privileged: true
+    networks:
+      app_net:
+        ipv4_address: 172.16.238.30
+  doc-v-monitor:
+    container_name: doc-v-monitor
+    image: jovenbico/ubuntu-ssh-enabled:v3
     privileged: true
     ports:
       - "8080:80"
     networks:
       app_net:
-        ipv4_address: 172.16.238.10
-  cs-v-node2:
-    container_name: cs-v-node2
-    image: jovenbico/ubuntu-ssh-enabled:v2
-    privileged: true
-    networks:
-      app_net:
-        ipv4_address: 172.16.238.20
-  cs-v-node3:
-    container_name: cs-v-node3
-    image: jovenbico/ubuntu-ssh-enabled:v2
-    privileged: true
-    networks:
-      app_net:
-        ipv4_address: 172.16.238.30
-
+        ipv4_address: 172.16.238.40
 networks:
   app_net:
     driver: bridge
