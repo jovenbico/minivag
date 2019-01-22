@@ -5,6 +5,11 @@ services:
     container_name: doc-v-node1
     image: jovenbico/ubuntu-ssh-enabled:v3
     privileged: true
+    ports:
+      - "80:80"
+      - "1936:1936"
+      - "7080:7080"
+      - "8080-8090:8080-8090"
     networks:
       app_net:
         ipv4_address: 172.16.238.10
@@ -15,22 +20,15 @@ services:
     networks:
       app_net:
         ipv4_address: 172.16.238.20
-  doc-v-node3:
-    container_name: doc-v-node3
-    image: jovenbico/ubuntu-ssh-enabled:v3
-    privileged: true
-    networks:
-      app_net:
-        ipv4_address: 172.16.238.30
   doc-v-monitor:
     container_name: doc-v-monitor
     image: jovenbico/ubuntu-ssh-enabled:v3
     privileged: true
     ports:
-      - "8080:80"
+      - "6080:80"
     networks:
       app_net:
-        ipv4_address: 172.16.238.40
+        ipv4_address: 172.16.238.30
 networks:
   app_net:
     driver: bridge
