@@ -13,15 +13,15 @@ $ vagrant ssh
 #### Create ansible inventory
 ```
 $ nano container
-doc-v-node1   ansible_ssh_user=root ansible_ssh_pass=Passw0rd ansible_host=172.16.238.10
-doc-v-node2   ansible_ssh_user=root ansible_ssh_pass=Passw0rd ansible_host=172.16.238.20
-doc-v-monitor ansible_ssh_user=root ansible_ssh_pass=Passw0rd ansible_host=172.16.238.30
+con-v-node1   ansible_ssh_user=root ansible_ssh_pass=Passw0rd ansible_host=172.16.238.10
+con-v-node2   ansible_ssh_user=root ansible_ssh_pass=Passw0rd ansible_host=172.16.238.20
+con-v-monitor ansible_ssh_user=root ansible_ssh_pass=Passw0rd ansible_host=172.16.238.30
 $ nano ansible.cfg
 [defaults]
 host_key_checking = False
 ```
 #### Test ansible inventory
-``$ ansible doc-v-node* -m ping -i container -vvv``  
+``$ ansible con-v-node* -m ping -i container -vvv``  
 
 #### Enable ssh with password to Vagrant box
 ```
