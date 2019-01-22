@@ -27,9 +27,12 @@ services:
     image: mongo:3.6-stretch
     environment:
       MONGO_INITDB_ROOT_USERNAME: mongoReadWrite
-      MONGO_INITDB_ROOT_PASSWORD:
+      MONGO_INITDB_ROOT_PASSWORD: mongoSecret
     ports:
       - "27017:27017"
+    networks:
+      app_net:
+        ipv4_address: 172.16.238.40
     command: mongod --smallfiles
 
   doc-v-monitor:
