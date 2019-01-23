@@ -1,4 +1,5 @@
 # Vagrant ubuntu/ with ansible and docker
+### NOTE: THIS SETUP IS FOR TEST AND LEARNING PURPOSES ONLY! NOT TO BE USED IN A PRODUCTION ENVIRONMENT!
 
 ### Usage
 #### Start Vagrant provisioning
