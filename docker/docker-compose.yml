@@ -4,7 +4,7 @@ services:
   con-v-node1:
     container_name: con-v-node1
     hostname: con-v-node1
-    image: jovenbico/ubuntu-ssh-enabled:v3
+    image: jovenbico/ubuntu-ssh-enabled:v4
     privileged: true
     ports:
       - "80:80"
@@ -18,7 +18,7 @@ services:
   con-v-node2:
     container_name: con-v-node2
     hostname: con-v-node2
-    image: jovenbico/ubuntu-ssh-enabled:v3
+    image: jovenbico/ubuntu-ssh-enabled:v4
     privileged: true
     networks:
       app_net:
@@ -41,7 +41,7 @@ services:
   con-v-monitor:
     container_name: con-v-monitor
     hostname: con-v-monitor
-    image: jovenbico/ubuntu-ssh-enabled:v3
+    image: jovenbico/ubuntu-ssh-enabled:v4
     privileged: true
     ports:
       - "6080:80"
