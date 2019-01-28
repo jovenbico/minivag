@@ -29,4 +29,12 @@ host_key_checking = False
 $ sudo nano /etc/ssh/sshd_config
 PasswordAuthentication yes
 $ sudo service ssh restart
+```  
+
+#### Add to known_hosts
+```
+ssh vagrant@{{VagrantIP}}
+ssh-keyscan 172.16.238.10 >> ~/.ssh/known_hosts
+ssh-keyscan 172.16.238.20 >> ~/.ssh/known_hosts
+ssh-keyscan 172.16.238.30 >> ~/.ssh/known_hosts
 ```
