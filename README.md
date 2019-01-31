@@ -37,4 +37,5 @@ ssh vagrant@{{VagrantIP}}
 ssh-keyscan 172.16.238.10 >> ~/.ssh/known_hosts
 ssh-keyscan 172.16.238.20 >> ~/.ssh/known_hosts
 ssh-keyscan 172.16.238.30 >> ~/.ssh/known_hosts
+ssh-keyscan 172.16.238.40 >> ~/.ssh/known_hosts
 ```
